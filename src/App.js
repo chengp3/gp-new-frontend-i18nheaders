@@ -33,8 +33,7 @@ export default function App () {
   useEffect(() => {
     fetch("https://catalog.galacticpolymath.com/index.json")
       .then(res => res.json())
-      .then(res => {setLessons(res)
-        console.log("App.js fetch: ", res)})
+      .then(res => setLessons(res))
       .catch(error => console.error(error));
   }, []);
 

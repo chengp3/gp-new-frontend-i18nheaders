@@ -19,6 +19,8 @@ import {render, hydrate} from "react-dom";
 
 import App from "./App";
 
+import './i18n';
+
 const rootElement = document.getElementById("root");
 if (rootElement.hasChildNodes()) {
   hydrate(<App />, rootElement);

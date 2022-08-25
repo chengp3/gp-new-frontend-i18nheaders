@@ -12,6 +12,8 @@ import RichText from "../../components/RichText";
 import ShareTools from "./ShareTools";
 import ReactFlagsSelect from "react-flags-select";
 
+import { useTranslation } from 'react-i18next';
+
 import lessonPlanStyle from "assets/jss/material-kit-pro-react/views/lessonPlanStyle.js";
 const useStyles = makeStyles(lessonPlanStyle);
 
@@ -40,6 +42,7 @@ const Header = ({
   CoverImage,
   SponsorImage,
   Section,
+  t
 }) => {
   const classes = useStyles();
   const lastSubRelease = getLatestSubRelease(Section);
@@ -73,7 +76,7 @@ const Header = ({
           {lastSubRelease && (
             <AnchorLink href="#version_notes" offset="125px">
               <p>
-                Version {lastSubRelease.version} (Updated{" "}
+                {t('headers.version')} {lastSubRelease.version} ({t('headers.updated')}{" "}
                 {moment(new Date(lastSubRelease.date))
                   .format("MMM D, yyyy")}
                 )
@@ -83,7 +86,7 @@ const Header = ({
           <ReactFlagsSelect selected={selectedLocale} countries={countries} customLabels={labels} showSelectedLabel={false}
           onSelect={countryCode => {
             selectLocale(countryToLoc[countryCode])
-          }} placeholder={"Current locale: " + selectedLocale} alignOptionsToRight={true} fullWidth={false}
+          }} placeholder={t('headers.currentLocale') + ': '  + selectedLocale} alignOptionsToRight={true} fullWidth={false}
           />
         </div>
         <h2>{Title}</h2>
@@ -98,7 +101,7 @@ const Header = ({
         </GridContainer>
         <GridContainer className="sponsor">
           <GridItem xs={12} sm={9} md={9} className="sponsorDescr">
-            <h5>Sponsored by:</h5>
+            <h5>{t('headers.sponsoredBy')}:</h5>
             <RichText content={SponsoredBy} />
           </GridItem>
           <GridItem xs={4} sm={3} md={2} className="sponsorLogo">

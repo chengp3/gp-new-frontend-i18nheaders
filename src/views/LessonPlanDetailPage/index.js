@@ -15,6 +15,8 @@ import NavigationDots from "./NavigationDots";
 import useScrollHandler from './NavigationDots/useScrollHandler'
 import { isConstructorDeclaration } from "typescript";
 
+import { useTranslation } from 'react-i18next';
+
 export default function LessonPlan({ location, lessons }) {
 
   let { lessonId } = useParams(); // defined and App.js. taken from URL suffix
@@ -40,6 +42,8 @@ export default function LessonPlan({ location, lessons }) {
 
   let numberedElements = 0;
 
+  const { t } = useTranslation();
+
   // count the sections listed in numbered_sections. to send as index. 
   // function takes a section object with flat properties
   // returns a section component to render
@@ -48,7 +52,7 @@ export default function LessonPlan({ location, lessons }) {
       numberedElements++;
     }
 
-    return <Section key={i} index={numberedElements} section={section} />;
+    return <Section key={i} index={numberedElements} section={section} t={t} />;
   };
   
   const selectLocale = (localeSelected) => setLocale(localeSelected);
@@ -69,7 +73,7 @@ export default function LessonPlan({ location, lessons }) {
       />
       <div className="LessonPlan" id="top">
 
-        <Header location={location} selectedLocale={loc} selectLocale={selectLocale} availLocales={availLocales} {...lesson} />
+        <Header location={location} selectedLocale={loc} selectLocale={selectLocale} availLocales={availLocales} {...lesson} t={t} />
 
         {lesson.Section &&
           Object.keys(lesson.Section).map((sectionkey, i) => renderSection(lesson.Section[sectionkey], i)

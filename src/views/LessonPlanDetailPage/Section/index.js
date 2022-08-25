@@ -31,11 +31,11 @@ export const sectionTypeMap = {
   [SECTIONS.PREVIEW]: Preview
 };
 
-const Section = ({ index, section }) => {
+const Section = ({ index, section, t }) => {
   const Component = sectionTypeMap[section.__component];
 
   return Component ? (
-    <Component className="Section" key={index} index={index} {...section} />
+    <Component className="Section" key={index} index={index} {...section} t={t} />
   ) : (
     <div>Invalid section {section.__component}</div>
   );
