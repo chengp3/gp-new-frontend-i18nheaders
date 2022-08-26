@@ -29,7 +29,8 @@ const Overview = ({
   TargetSubject,
   SteamEpaulette,
   Text,
-  Tags
+  Tags, 
+  t
 }) => {
   const classes = useStyles();
 
@@ -38,7 +39,7 @@ const Overview = ({
     <CollapsibleSection
       className="Overview"
       index={index}
-      SectionTitle="Overview"
+      SectionTitle={t('headers.Overview')}
       initiallyExpanded
     >
       <div className={classes.container}>
@@ -47,7 +48,7 @@ const Overview = ({
             <GridItem  className=" focus" id="firstGridItem">
 
               <MenuBookIcon fontSize="large" className="statIcon" />
-              <h5>Target Subject: </h5>
+              <h5>{t('headers.targetSubject')} </h5>
               <div className="statContainer">
                 <h3>{TargetSubject}</h3>
               </div>
@@ -61,7 +62,7 @@ const Overview = ({
             </GridItem>
             <GridItem  className="focus">
               <ScheduleIcon fontSize="large" className="statIcon" />
-              <h5>Estimated Time: </h5>
+              <h5>{t('headers.estimatedTime')} </h5>
               <div className="statContainer" id="lastGridItem">
                 <h3>{EstLessonTime}</h3>
               </div>
@@ -70,7 +71,7 @@ const Overview = ({
           {SteamEpaulette.url &&
           <AnchorLink href="#learning_standards" offset="125px">
             <div className="epaulette-container">
-              <h5>Subject breakdown by standard alignments: </h5>
+              <h5>{t('headers.subjectBreakdown')}</h5>
               <Image {...SteamEpaulette} className="epaulette" />
 
             </div>
@@ -83,12 +84,12 @@ const Overview = ({
 
         <RichText content={Text} />
 
-        <h5>Keywords:</h5>
+        <h5>{t('headers.Keywords')}</h5>
         {Tags && <TagCloud tags={Tags} />}
 
         {Description &&
           <Fragment>
-            <h3>Lesson Description</h3>
+            <h3>{t('headers.lessonDescription')}</h3>
             <RichText content={Description} />
           </Fragment>
         }

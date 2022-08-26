@@ -13,45 +13,87 @@ i18n
       escapeValue: false, // not needed for react as it escapes by default
     },
     resources: {
-      en: {
+      sp: {
         translation: {
           headers: {
+            Title: 'Título',
+            Heading: 'Título',
             version: 'Versión',
             sponsoredBy: 'Patrocinado por',
             updated: 'actualizado',
             currentLocale: 'Configuración regional actual',
-            overview: 'Visión General',
-            targetSubject: 'Sujeto de destino',
+
+            Overview: 'Visión General',
+            targetSubject: 'Sujeto de destino: ',
             grades: 'Grados',
             estimatedTime: 'Hora prevista',
-            subjectBreakdown: 'Desglose de materias por alineaciones estándar:',
-            drivingQuestions: 'Pregunta(s) de conducción:',
-            essentialQuestions: 'Preguntas esencialess:',
-            hooks: 'Manos',
-            keywords: 'Palabras clave',
+            subjectBreakdown: 'Desglose de materias por alineaciones estándar: ',
+            Keywords: 'Palabras clave',
             lessonDescription: 'Descripción de la lección',
-            lessonPreview: 'Vista previa de la lección',
-            teachItIn15: 'Preparación rápida "Enséñalo en 15',
-            teachingMaterials: 'Materiales de enseñanza',
+
+            Preview: 'Vista previa de la lección',
+            teachItIn15: 'Preparación rápida: "Enséñalo en 15"',
+
+            TeachingMaterials: 'Materiales de enseñanza',
             classroomInPerson: 'Materiales de enseñanza en el aula/en persona',
             resourcesNeeded: 'Recursos necesitados:',
-            grades59: 'Grados 5-9',
-            downloadGrades59: 'Descargar G5-9 Materiales para todas las piezas',
-            procedure: 'Procedimiento',
-            part: 'parte',
-            background: 'Fondo',
-            learningStandards: 'Estándares de aprendizaje',
-            aboutChart: 'Acerca de la tabla de aprendizaje de cabecera',
-            targetStandards: 'Estándar(es) objetivo',
-            connectedStandards: 'Estándar(es) conectado(s)',
-            feedback: 'Retroalimentación',
-            feedbackTop: '¡Cuéntanos cómo te fue con tu clase!',
-            feedbackExp: 'Comparta sus comentarios en < 5 min con estos formularios:',
-            forTeachers: 'para profesores',
-            forStudents: 'para estudiantes',
-            feedback: 'Créditos',
+            
+            Procedure: 'Procedimiento',
+            Part: 'Parte',
+
+            LearningStandards: 'Estándares de aprendizaje',
+            Note: 'Nota:', 
+            ClickOn: 'Haga clic en cualquier estándar',
+            ForDetails: ' para obtener detalles sobre cómo se alinea la lección.',
+            TargetStandards: 'Estándar(es) objetivo',
+            ConnectedStandards: 'Estándar(es) conectado(s)',
+            Dimension: 'Dimensión: ',
+
             Acknowledgments: 'Expresiones de gratitud',
-            versionNotes: 'Notas de la versión'
+
+            VersionNotes: 'Notas de la versión'
+          }
+        }
+      },
+      enUS: {
+        translation: {
+          headers: {
+            Title: 'Title',
+            Heading: 'Heading',
+            version: 'Version',
+            sponsoredBy: 'Sponsored By',
+            updated: 'updated',
+            currentLocale: 'Current Locale: ',
+
+            Overview: 'Overview',
+            targetSubject: 'Target Subject: ',
+            grades: 'Grades',
+            estimatedTime: 'Estimated Time: ',
+            subjectBreakdown: 'Subject breakdown by standard alignments: ',
+            Keywords: 'Keywords: ',
+            lessonDescription: 'Lesson Description ',
+
+            Preview: 'Lesson Preview',
+            teachItIn15: '"Teach it in 15" Quick Prep',
+
+            TeachingMaterials: 'Teaching Materials',
+            classroomInPerson: 'Classroom/In-person Teaching Materials',
+            resourcesNeeded: 'Resources needed:',
+            
+            Procedure: 'Procedure',
+            Part: 'Part',
+
+            LearningStandards: 'Learning Standards',
+            Note: 'Note:', 
+            ClickOn: 'Click on any standard',
+            ForDetails: ' for details on how the lesson the aligns to it.',
+            TargetStandards: 'Target Standard(s)',
+            ConnectedStandards: 'Connected Standard(s)',
+            Dimension: 'Dimension: ',
+            
+            Acknowledgments: 'Acknowledgments',
+
+            VersionNotes: 'Version Notes'
           }
         }
       }

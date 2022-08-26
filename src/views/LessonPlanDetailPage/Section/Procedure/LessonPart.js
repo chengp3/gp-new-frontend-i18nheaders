@@ -14,7 +14,7 @@ import Chunk from "./Chunk";
 
 const useStyles = makeStyles(lessonPlanStyle);
 
-const LessonPart = ({ partNum, partTitle, partPreface, chunks = [] }) => {
+const LessonPart = ({ partNum, partTitle, partPreface, chunks = [], t }) => {
   const classes = useStyles();
   const [expanded, expand] = useState(false);
 
@@ -36,7 +36,7 @@ const LessonPart = ({ partNum, partTitle, partPreface, chunks = [] }) => {
         >
           <div>
             <h3>
-              Part {partNum}: {partTitle}
+              {t('headers.Part')} {partNum}: {partTitle}
             </h3>
             <RichText content={partPreface} />
           </div>

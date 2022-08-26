@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import lessonPlanStyle from "assets/jss/material-kit-pro-react/views/lessonPlanStyle.js";
 const useStyles = makeStyles(lessonPlanStyle);
 
-const Heading = ({ index, SectionTitle }) => {
+const Heading = ({ index, SectionTitle, t }) => {
   const classes = useStyles();
 
   return (

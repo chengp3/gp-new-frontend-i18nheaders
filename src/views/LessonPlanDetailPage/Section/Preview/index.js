@@ -19,18 +19,19 @@ const Preview = ({
   InitiallyExpanded,
   Multimedia,
   QuickPrep,
+  t
 }) => {
   const classes = useStyles();
   return (
     <CollapsibleSection
       className="Preview CollapsibleTextSection"
       index={index}
-      SectionTitle={SectionTitle}
+      SectionTitle={t('headers.Preview')}
       initiallyExpanded={InitiallyExpanded !== false}
     >
       <div className={classes.container}>
         <Card className={classes.quickPrep}>
-          <h5>&quot;Teach it in 15&quot; Quick Prep</h5>
+          <h5>{t('headers.teachItIn15')}</h5>
           <RichText content={QuickPrep} />
         </Card>
         {Multimedia && <Carousel items={Multimedia} /> }

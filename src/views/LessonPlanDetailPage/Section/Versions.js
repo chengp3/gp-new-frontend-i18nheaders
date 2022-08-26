@@ -8,13 +8,13 @@ import lessonPlanStyle from "assets/jss/material-kit-pro-react/views/lessonPlanS
 import RichText from "../../../components/RichText";
 const useStyles = makeStyles(lessonPlanStyle);
 
-const Versions = ({ index, SectionTitle, Data = [] }) => {
+const Versions = ({ index, SectionTitle, Data = [], t }) => {
   const classes = useStyles();
   return (
     <CollapsibleSection
       className="Versions"
       index={index}
-      SectionTitle={SectionTitle}
+      SectionTitle={t('headers.VersionNotes')}
     >
       <div className={classes.container}>
         {Data &&

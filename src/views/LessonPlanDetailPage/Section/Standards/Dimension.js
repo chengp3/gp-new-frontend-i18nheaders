@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 
 import StandardsGroup from "./StandardsGroup";
 
-const Dimension = ({ name, standardsGroup }) => {
+const Dimension = ({ name, standardsGroup, t }) => {
   return (
     <div className="Dimension">
       <p>
-        <strong>Dimension:</strong> {name}
+        <strong>{t('headers.Dimension')}</strong> {name}
       </p>
       {standardsGroup.map((group, i) => (
         <StandardsGroup key={i} {...group} />

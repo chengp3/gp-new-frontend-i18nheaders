@@ -42,7 +42,8 @@ const Header = ({
   CoverImage,
   SponsorImage,
   Section,
-  t
+  t, 
+  i18n
 }) => {
   const classes = useStyles();
   const lastSubRelease = getLatestSubRelease(Section);
@@ -66,11 +67,11 @@ const Header = ({
         {/* SectionHeading Div used for nav dots */}
         <div
           className="SectionHeading"
-          id="Title"
+          id={t('headers.Title')}
           style={{ padding: 0, margin: 0 }}
         >
           {/* Dots nav text; not displayed on page */}
-          <span style={{ display: "none" }}>Title</span>
+          <span style={{ display: "none" }}>{t('headers.Title')}</span>
         </div>
         <div style={{display: "flex", justifyContent: "space-between"}}>
           {lastSubRelease && (
@@ -85,8 +86,10 @@ const Header = ({
           )}
           <ReactFlagsSelect selected={selectedLocale} countries={countries} customLabels={labels} showSelectedLabel={false}
           onSelect={countryCode => {
-            selectLocale(countryToLoc[countryCode])
-          }} placeholder={t('headers.currentLocale') + ': '  + selectedLocale} alignOptionsToRight={true} fullWidth={false}
+            const loc = countryToLoc[countryCode];
+            selectLocale(loc);
+            i18n.changeLanguage(loc.replace('-', ''));
+          }} placeholder={t('headers.currentLocale') + selectedLocale} alignOptionsToRight={true} fullWidth={false}
           />
         </div>
         <h2>{Title}</h2>

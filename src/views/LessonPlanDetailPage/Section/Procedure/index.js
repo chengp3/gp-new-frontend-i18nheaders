@@ -11,13 +11,13 @@ import LessonPart from "./LessonPart";
 import "./style.scss";
 const useStyles = makeStyles(lessonPlanStyle);
 
-const Procedure = ({ index, SectionTitle, Data }) => {
+const Procedure = ({ index, SectionTitle, Data, t }) => {
   const classes = useStyles();
   return (
     <CollapsibleSection
       className="Procedure"
       index={index}
-      SectionTitle={SectionTitle}
+      SectionTitle={t('headers.Procedure')}
       initiallyExpanded
     >
       <div className={classes.container}>
@@ -31,7 +31,7 @@ const Procedure = ({ index, SectionTitle, Data }) => {
             <RichText content={Data.lessonPreface} />
           </div>
           {Data.parts.map((part, i) => (
-            <LessonPart key={i} {...part} />
+            <LessonPart key={i} {...part} t={t} />
           ))}
         </Fragment>
       </div>

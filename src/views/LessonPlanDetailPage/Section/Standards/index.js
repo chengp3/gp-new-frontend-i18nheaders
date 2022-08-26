@@ -14,7 +14,7 @@ import "./style.scss";
 
 const useStyles = makeStyles(lessonPlanStyle);
 
-const Standards = ({ Data }) => {
+const Standards = ({ Data, t }) => {
   const classes = useStyles();
   const [expanded, expand] = useState(false);
 
@@ -29,24 +29,24 @@ const Standards = ({ Data }) => {
           className="ExpansionPanelSummary"
           expandIcon={<ExpandMoreIcon />}
         >
-          <h3>Learning Standards</h3>
+          <h3>{t('headers.LearningStandards')}</h3>
         </ExpansionPanelSummary>
         <div className={"clickInvitation"}>
-          Note:&nbsp;
+          {t('headers.Note')}&nbsp;
             <span className={"clickOn"}>
-             Click on any standard
+            {t('headers.ClickOn')}
             <i className="fas fa-mouse-pointer" />
           </span>
-        for details on how the lesson aligns to it.
+          {t('headers.ForDetails')}
     </div>
   <ExpansionPanelDetails className="ExpansionPanelDetails">
-    <h3>Target Standard(s)</h3>
+    <h3>{t('headers.TargetStandards')}</h3>
     {Data.filter(({ target }) => target).map((subject, i) => (
-      <Subject initiallyExpanded key={"target-" + i} {...subject} />
+      <Subject initiallyExpanded key={"target-" + i} {...subject} t={t} />
     ))}
-    <h3>Connected Standard(s)</h3>
+    <h3>{t('headers.ConnectedStandards')}</h3>
     {Data.filter(({ target }) => !target).map((subject, i) => (
-      <Subject key={"connected-" + i} {...subject} />
+      <Subject key={"connected-" + i} {...subject} t={t}  />
     ))}
   </ExpansionPanelDetails>
 </ExpansionPanel>

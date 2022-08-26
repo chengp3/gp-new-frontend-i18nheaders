@@ -7,7 +7,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import Dimension from "./Dimension";
 
-const Subject = ({ sets, subject, initiallyExpanded }) => {
+const Subject = ({ sets, subject, initiallyExpanded, t }) => {
   const [expanded, expand] = useState(initiallyExpanded);
 
   return (
@@ -27,7 +27,7 @@ const Subject = ({ sets, subject, initiallyExpanded }) => {
 
       <ExpansionPanelDetails>
         {sets[0].dimensions.map((dim, i) => (
-          <Dimension key={i} {...dim} />
+          <Dimension key={i} {...dim} t={t} />
         ))}
       </ExpansionPanelDetails>
     </ExpansionPanel>

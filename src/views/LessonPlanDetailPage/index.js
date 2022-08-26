@@ -37,12 +37,11 @@ export default function LessonPlan({ location, lessons }) {
   useEffect(() => {
     if (loc) {console.log("Locale change", loc);
     setLesson(lessons.find(({ id, locale }) => parseInt(id) === lessonId && locale === loc));
-    //if (lesson) console.log("Lesson", lesson, "locale", loc, "avail", availLocales);
   }}, [loc]);
 
   let numberedElements = 0;
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   // count the sections listed in numbered_sections. to send as index. 
   // function takes a section object with flat properties
@@ -52,7 +51,7 @@ export default function LessonPlan({ location, lessons }) {
       numberedElements++;
     }
 
-    return <Section key={i} index={numberedElements} section={section} t={t} />;
+    return <Section key={i} index={numberedElements} section={section} t={t} i18n={i18n} />;
   };
   
   const selectLocale = (localeSelected) => setLocale(localeSelected);
@@ -73,7 +72,7 @@ export default function LessonPlan({ location, lessons }) {
       />
       <div className="LessonPlan" id="top">
 
-        <Header location={location} selectedLocale={loc} selectLocale={selectLocale} availLocales={availLocales} {...lesson} t={t} />
+        <Header location={location} selectedLocale={loc} selectLocale={selectLocale} availLocales={availLocales} {...lesson} t={t} i18n={i18n} />
 
         {lesson.Section &&
           Object.keys(lesson.Section).map((sectionkey, i) => renderSection(lesson.Section[sectionkey], i)

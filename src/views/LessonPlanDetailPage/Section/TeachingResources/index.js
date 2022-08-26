@@ -20,13 +20,14 @@ const TeachingResources = ({
     classroom,
     remote
   },
+  t
 }) => {
   const classes = useStyles();
   return (
     <CollapsibleSection
       initiallyExpanded
       index={index}
-      SectionTitle={SectionTitle}
+      SectionTitle={t('headers.TeachingMaterials')}
     >
       <div className={classes.container}>
         {classroom && remote && <LessonHelperText text="Click a category for more details"/>}

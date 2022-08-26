@@ -9,12 +9,11 @@ const useStyles = makeStyles(lessonPlanStyle);
 
 const Acknowledgments = ({ index, SectionTitle, Data = [], t }) => {
   const classes = useStyles();
-  SectionTitle='headers.' + SectionTitle
   return (
     <CollapsibleSection
       className={"Acknowledgments"}
       index={index}
-      SectionTitle={t(SectionTitle)}
+      SectionTitle={t('headers.' + SectionTitle)}
     >
       <div className={classes.container}>
         {Data &&
