@@ -27,8 +27,7 @@ const getLatestSubRelease = (sections) => {
   return lastSubRelease;
 };
 
-                 // <locale>: <reactflagselect country code>
-const locToCountry= {"en-US": "US", "en-GB": "GB", "en-NZ": "NZ", "fr": "FR", "de": "DE", "it": "IT", "fr-AW": "AW"}
+const getLanguage = new Intl.DisplayNames(['en'], {type: 'language'})
 const countryToLoc= {"US": "en-US", "GB": "en-GB", "NZ": "en-NZ", "FR": "fr", "DE": "de", "IT": "it", "AW": "fr-AW"}
 
 const Header = ({
@@ -57,8 +56,9 @@ const Header = ({
   let labels = {}
 
   availLocales.forEach((loc) => {
-    countries.push(locToCountry[loc]);
-    labels[locToCountry[loc]] = loc;
+    const locale = new Intl.Locale(loc)
+    countries.push(locale.region);
+    labels[locale.region] = { primary: locale.language, secondary: getLanguage.of(loc) };
   })
 
   return (
@@ -84,7 +84,7 @@ const Header = ({
               </p>
             </AnchorLink>
           )}
-          <ReactFlagsSelect selected={selectedLocale} countries={countries} customLabels={labels} showSelectedLabel={false}
+          <ReactFlagsSelect selected={selectedLocale} countries={countries} customLabels={labels} showSelectedLabel={false} showSecondarySelectedLabel={false} showOptionLabel={false} showSecondaryOptionLabel={true} 
           onSelect={countryCode => {
             const loc = countryToLoc[countryCode];
             selectLocale(loc);
